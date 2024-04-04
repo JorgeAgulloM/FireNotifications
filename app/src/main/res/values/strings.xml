@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FireNotifications</string>
+    
+    <!-- Notifications Channels -->
+    <string name="default_channel" translatable="false">generic</string>
+
 </resources>
