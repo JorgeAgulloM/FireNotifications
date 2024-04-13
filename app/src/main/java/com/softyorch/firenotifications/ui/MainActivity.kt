@@ -3,8 +3,12 @@ package com.softyorch.firenotifications.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.viewModels
 import com.softyorch.firenotifications.R
+import com.softyorch.firenotifications.data.TopicManager.Companion.BASKETBALL_TOPIC
+import com.softyorch.firenotifications.data.TopicManager.Companion.FOOTBALL_TOPIC
+import com.softyorch.firenotifications.data.TopicManager.Companion.PETANCA_TOPIC
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +32,25 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
+        initUI()
         //throw RuntimeException("Yorch Fail")
 
+    }
+
+    private fun initUI() {
+        initListeners()
+    }
+
+    private fun initListeners() {
+        findViewById<Button>(R.id.btnFootball).setOnClickListener {
+            viewModel.subscribeToTopic(FOOTBALL_TOPIC)
+        }
+        findViewById<Button>(R.id.btnBasketball).setOnClickListener {
+            viewModel.subscribeToTopic(BASKETBALL_TOPIC)
+        }
+        findViewById<Button>(R.id.btnPetanca).setOnClickListener {
+            viewModel.subscribeToTopic(PETANCA_TOPIC)
+        }
     }
 }
